@@ -1,3 +1,6 @@
+'use client'
+
+import { useRouter } from 'next/navigation'
 import { Badge } from '@/app/_components/ui/badge'
 import { Button } from '@/app/_components/ui/button'
 import { Card, CardContent } from '@/app/_components/ui/card'
@@ -10,6 +13,11 @@ interface BarbershopItemProps {
 }
 
 export const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
+	const router = useRouter()
+
+	const handleBookingClick = () => {
+		router.push(`/barbershops/${barbershop.id}`)
+	}
 	return (
 		<Card className="min-w-[167px] max-w-[167px] rounded-2xl">
 			<CardContent className="px-1 py-0">
@@ -44,6 +52,7 @@ export const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
 						{barbershop.address}
 					</p>
 					<Button
+						onClick={handleBookingClick}
 						variant="secondary"
 						className="w-full mt-3">
 						Reservar
