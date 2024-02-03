@@ -13,7 +13,7 @@ interface BarbershopInfoProps {
 
 const BarbershopInfo = ({ barbershop }: BarbershopInfoProps) => {
 	const router = useRouter()
-	const handleBackClick = () => router.back()
+	const handleBackClick = () => router.replace('/')
 
 	return (
 		<div>
@@ -25,18 +25,13 @@ const BarbershopInfo = ({ barbershop }: BarbershopInfoProps) => {
 					onClick={handleBackClick}>
 					<ChevronLeftIcon />
 				</Button>
-				<Button
-					size="icon"
-					variant="outline"
-					className="z-50 top-4 right-4 absolute">
-					<MenuIcon />
-				</Button>
 
 				<Sheet>
 					<SheetTrigger asChild>
 						<Button
+							size="icon"
 							variant="outline"
-							size="icon">
+							className="z-50 top-4 right-4 absolute">
 							<MenuIcon size={16} />
 						</Button>
 					</SheetTrigger>
